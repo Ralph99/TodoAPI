@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     #   local
     "task.apps.TaskConfig",
+
+    #   3rd party
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
