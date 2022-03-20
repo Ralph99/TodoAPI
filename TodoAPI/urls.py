@@ -18,7 +18,26 @@ from django.urls import path, include
 
 from task.models import Task
 
+from rest_framework.schemas import get_schema_view
+from rest_framework_swagger.views import get_swagger_view
+
+
+from django.views.generic import TemplateView
+
+schema_view = get_schema_view(title="TodoAPI")
+
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/', include('task.urls')),
+
+    path('schema/', get_schema_view(
+        title = "TodoAPI",
+        description="A simple API for a todo app",
+        version ="1.0.0"
+    ), name="openapi-schema"),
+
+    path('docs/', TemplateView.as_view(
+        template_name='documentation.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='swagger-ui'),
 ]

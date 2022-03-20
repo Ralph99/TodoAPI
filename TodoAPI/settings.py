@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "task.apps.TaskConfig",
 
     #   3rd party
-    "rest_framework"
+    "rest_framework",
+    "rest_framework_swagger",
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'TodoAPI.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
